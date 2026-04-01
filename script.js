@@ -145,7 +145,7 @@ document.getElementById("loginSubmit").addEventListener("click", () => {
     loggedInEdition = edition;
     loginModal.classList.remove("active");
     const loginBtn = document.getElementById("loginBtn");
-    loginBtn.textContent = username;
+    loginBtn.textContent = edition === "bedrock" ? "." + username : username;
     loginBtn.style.color = "var(--text-primary)";
 
     if (pendingCheckout) {
