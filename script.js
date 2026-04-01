@@ -183,9 +183,13 @@ async function startTebexCheckout() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          username: loggedInUser,
+          username:
+            loggedInEdition === "bedrock"
+              ? "." + loggedInUser
+              : loggedInUser,
           complete_url: window.location.href,
           cancel_url: window.location.href,
+          complete_auto_redirect: true,
         }),
       },
     );
