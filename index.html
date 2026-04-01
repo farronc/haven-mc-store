@@ -66,9 +66,9 @@
                         <div class="rank-info">
                             <span class="rank-subtitle">THE OFFICIAL HAVEN RANK</span>
                             <h1 class="rank-title">Haven <span class="rank-title-accent">Lotus</span></h1>
-                            <p class="rank-description">Subscribe once, get instant teleports anywhere, all home slots, remote shop and bank access, no taxes, and the best Haven has to offer.</p>
+                            <p class="rank-description">Subscribe once, get personal warps, portable crafting stations, monthly crate keys, exclusive cosmetics, and the best Haven has to offer.</p>
                             <div class="rank-actions">
-                                <a href="#" class="rank-buy-btn">$9.99 <span class="rank-buy-period">/month &rarr;</span></a>
+                                <button class="rank-buy-btn" id="openPlanBtn">$9.99 <span class="rank-buy-period">/month &rarr;</span></button>
                                 <button class="rank-perks-btn" id="viewPerksBtn">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">i</text></svg>
                                     View all perks
@@ -78,20 +78,20 @@
                         <div class="rank-card">
                             <div class="rank-card-header">
                                 <span class="rank-card-label">UNLOCK LOTUS</span>
-                                <a href="#" class="rank-card-btn">$9.99 <span class="rank-card-period">/month &rarr;</span></a>
+                                <button class="rank-card-btn" id="openPlanBtn2">$9.99 <span class="rank-card-period">/month &rarr;</span></button>
                             </div>
                             <ul class="rank-perks-list">
                                 <li class="rank-perk-item">
                                     <span class="perk-check">&#10003;</span>
-                                    <span>5 Home Slots</span>
+                                    <span>3 Personal Warps</span>
                                 </li>
                                 <li class="rank-perk-item">
                                     <span class="perk-check">&#10003;</span>
-                                    <span>Remote Bank &amp; Shop Access</span>
+                                    <span>Ender Chest Everywhere</span>
                                 </li>
                                 <li class="rank-perk-item">
                                     <span class="perk-check">&#10003;</span>
-                                    <span>Instant Teleports Everywhere</span>
+                                    <span>5 Crate Keys / Month</span>
                                 </li>
                                 <li class="rank-perk-item">
                                     <span class="perk-check">&#10003;</span>
@@ -136,6 +136,120 @@
     </div>
 
 
+    <!-- Perks Modal -->
+    <div class="modal-overlay" id="perksModal">
+        <div class="modal perks-modal">
+            <button class="modal-close" id="perksClose">&times;</button>
+
+            <div class="perks-hero">
+                <h3 class="perks-hero-title">Lotus Rank</h3>
+                <p class="perks-hero-price">$9.99 / month</p>
+            </div>
+
+            <div class="perks-grid">
+                <div class="perk-group">
+                    <h4 class="perk-group-title">Warps &amp; Travel</h4>
+                    <ul class="perk-detail-list">
+                        <li><span class="perk-check">&#10003;</span><strong>3 Personal Warps</strong><span>Set up to three private warp points anywhere in the world for instant travel on demand.</span></li>
+                        <li><span class="perk-check">&#10003;</span><strong>Ender Chest Everywhere</strong><span>Access your ender chest from anywhere with a simple command, no block needed.</span></li>
+                    </ul>
+                </div>
+
+                <div class="perk-group">
+                    <h4 class="perk-group-title">Monthly Crate Keys</h4>
+                    <ul class="perk-detail-list">
+                        <li><span class="perk-check">&#10003;</span><strong>5 Crate Keys / Month</strong><span>Receive a fresh set of keys each month: 2 Low-Level, 2 Mid-Level, and 1 High-Level key for the rarest loot.</span></li>
+                    </ul>
+                </div>
+
+                <div class="perk-group">
+                    <h4 class="perk-group-title">Portable Workstations</h4>
+                    <ul class="perk-detail-list">
+                        <li><span class="perk-check">&#10003;</span><strong>All Crafting Stations</strong><span>Use commands to instantly open a crafting table, anvil, cartography table, grindstone, loom, smithing table, stonecutter, or enchanting table — no blocks required.</span></li>
+                    </ul>
+                </div>
+
+                <div class="perk-group">
+                    <h4 class="perk-group-title">Exclusive Cosmetics</h4>
+                    <ul class="perk-detail-list">
+                        <li><span class="perk-check">&#10003;</span><strong>Lotus Chat Prefix</strong><span>Stand out in chat with the exclusive Lotus rank prefix, only available to subscribers.</span></li>
+                        <li><span class="perk-check">&#10003;</span><strong>Demon &amp; Angel Wings</strong><span>Equip stunning animated wing cosmetics to show off your style wherever you go.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <button class="perks-cta" id="perksCtaBtn">Pick Your Lotus Plan &rarr;</button>
+        </div>
+    </div>
+
+    <!-- Plan Modal -->
+    <div class="modal-overlay" id="planModal">
+        <div class="modal plan-modal">
+            <button class="modal-close" id="planClose">&times;</button>
+            <h3 class="modal-name">Choose your <span style="color: var(--gold);">Lotus</span> Plan</h3>
+            <p class="modal-desc">Longer plans are cheaper and support the server more.</p>
+            <p class="plan-highlight">Get up to 3 free months on longer plans!</p>
+
+            <div class="plan-options">
+                <label class="plan-option selected">
+                    <input type="radio" name="plan" value="30" checked>
+                    <div class="plan-left">
+                        <span class="plan-duration">30 days</span>
+                        <span class="plan-months">(1 month)</span>
+                        <span class="plan-total">$9.99 total</span>
+                    </div>
+                    <div class="plan-right">
+                        <span class="plan-price">$9.99<span class="plan-per">/mo</span></span>
+                    </div>
+                </label>
+
+                <label class="plan-option">
+                    <input type="radio" name="plan" value="90">
+                    <div class="plan-left">
+                        <span class="plan-duration">90 days</span>
+                        <span class="plan-months">(3 months)</span>
+                        <span class="plan-total">$27.99 total</span>
+                    </div>
+                    <div class="plan-right">
+                        <span class="plan-price">$9.33<span class="plan-per">/mo</span></span>
+                        <span class="plan-save">Saves 7%</span>
+                    </div>
+                </label>
+
+                <label class="plan-option">
+                    <input type="radio" name="plan" value="180">
+                    <div class="plan-left">
+                        <span class="plan-duration">180 days</span>
+                        <span class="plan-months">(6 months)</span>
+                        <span class="plan-total">$49.99 total</span>
+                    </div>
+                    <div class="plan-right">
+                        <span class="plan-price">$8.33<span class="plan-per">/mo</span></span>
+                        <span class="plan-save">Saves 17%</span>
+                        <span class="plan-bonus">1 free month!</span>
+                    </div>
+                </label>
+
+                <label class="plan-option">
+                    <input type="radio" name="plan" value="365">
+                    <div class="plan-left">
+                        <span class="plan-duration">365 days</span>
+                        <span class="plan-months">(12 months)</span>
+                        <span class="plan-total">$89.99 total</span>
+                    </div>
+                    <div class="plan-right">
+                        <span class="plan-price">$7.50<span class="plan-per">/mo</span></span>
+                        <span class="plan-save">Saves 26%</span>
+                        <span class="plan-bonus">3 free months!</span>
+                    </div>
+                </label>
+            </div>
+
+            <button class="plan-subscribe-btn" id="planSubscribeBtn">Subscribe &rarr;</button>
+        </div>
+    </div>
+
+    <script defer src="https://js.tebex.io/v/1.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

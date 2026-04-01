@@ -428,6 +428,7 @@ body {
 
 .rank-card-btn {
     display: block;
+    width: 100%;
     padding: 12px 24px;
     background: var(--gold);
     color: #fff;
@@ -438,6 +439,7 @@ body {
     text-align: center;
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
     transition: opacity 0.2s;
 }
 
@@ -465,6 +467,145 @@ body {
     font-size: 15px;
     font-weight: 600;
     color: var(--text-primary);
+}
+
+/* Plan Modal */
+.modal.plan-modal {
+    max-width: 580px;
+    width: 90vw;
+    text-align: left;
+    padding: 40px;
+}
+
+.modal.plan-modal .modal-name {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.modal.plan-modal .modal-desc {
+    text-align: center;
+    font-size: 15px;
+}
+
+.plan-highlight {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2ecc71;
+    margin-bottom: 20px;
+}
+
+.plan-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.plan-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.plan-option:hover {
+    border-color: var(--text-muted);
+}
+
+.plan-option.selected {
+    border-color: var(--gold);
+    background: rgba(194, 86, 79, 0.08);
+}
+
+.plan-option input[type="radio"] {
+    display: none;
+}
+
+.plan-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.plan-duration {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.plan-months {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.plan-total {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.plan-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.plan-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.plan-per {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.plan-save {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+.plan-bonus {
+    font-size: 11px;
+    font-weight: 600;
+    color: #2ecc71;
+}
+
+.plan-subscribe-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: var(--gold);
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.plan-subscribe-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.plan-subscribe-btn:hover {
+    opacity: 0.9;
 }
 
 .perk-check {
@@ -496,6 +637,104 @@ body {
     .rank-description {
         font-size: 14px;
     }
+}
+
+/* ===== Perks Modal ===== */
+.modal.perks-modal {
+    max-width: 700px;
+    width: 90vw;
+    text-align: left;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.perks-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 40px 24px;
+    background: linear-gradient(180deg, rgba(194, 86, 79, 0.1) 0%, transparent 100%);
+}
+
+.perks-hero-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.perks-hero-price {
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
+.perks-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 8px 40px 0;
+}
+
+.perk-group-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-family: var(--font-label);
+    text-align: left;
+}
+
+.perk-detail-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.perk-detail-list li {
+    display: grid;
+    grid-template-columns: 18px 150px 1fr;
+    align-items: start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: left;
+}
+
+.perk-detail-list li .perk-check {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+}
+
+.perk-detail-list li strong {
+    color: var(--text-primary);
+}
+
+.perks-cta {
+    display: block;
+    width: calc(100% - 80px);
+    margin: 24px 40px 32px;
+    padding: 14px;
+    background: var(--gold);
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.perks-cta:hover {
+    opacity: 0.9;
 }
 
 /* ===== Modal ===== */
