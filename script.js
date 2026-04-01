@@ -12,6 +12,7 @@ const TEBEX_API = "https://headless.tebex.io/api";
 // ===== State =====
 let loggedInUser = null;
 let loggedInEdition = null;
+let pendingCheckout = false;
 
 // ===== Copy server IP =====
 function copyIP() {
@@ -146,6 +147,12 @@ document.getElementById("loginSubmit").addEventListener("click", () => {
     const loginBtn = document.getElementById("loginBtn");
     loginBtn.textContent = username;
     loginBtn.style.color = "var(--text-primary)";
+
+    if (pendingCheckout) {
+      pendingCheckout = false;
+      planModal.classList.add("active");
+      startTebexCheckout();
+    }
   }
 });
 
@@ -166,7 +173,7 @@ async function startTebexCheckout() {
   }
 
   if (!loggedInUser) {
-    // Close plan modal and open login, then come back
+    pendingCheckout = true;
     planModal.classList.remove("active");
     loginModal.classList.add("active");
     return;
